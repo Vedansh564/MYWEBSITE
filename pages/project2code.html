@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Program - Screen Recorder</title>
+    <script src="https://kit.fontawesome.com/1cb338e89a.js" crossorigin="anonymous"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #080808;
+            color: white;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 30px;
+        }
+
+        .container {
+            padding: 10px 10%;
+            margin-top: 10px;
+
+
+        }
+
+        #newHead {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 25px;
+        }
+
+        .container .left {
+            font-size: 250%;
+        }
+
+        .container .left a {
+            color: white;
+            transition: color 0.5s;
+        }
+
+        .container .left a:hover {
+            color: #279EFF;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 10px 20px;
+            font-size: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            position: relative;
+            
+        }
+
+        nav ul li a::after {
+            content: "";
+            width: 0;
+            height: 3px;
+            background: #279EFF;
+            position: absolute;
+            left: 0;
+            bottom: -6px;
+            transition: width 0.5s;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        #newHead {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 25px;
+        }
+
+        .shit {
+            color: white;
+            transition: color 0.5s;
+            cursor: default;
+        }
+
+        .shit:hover {
+            color: #279EFF;
+        }
+
+        .video-content {
+            margin: 10px 10%;
+            height: 100vh;
+        }
+
+        .video-content video {
+            margin-top: 40px;
+            position: relative;
+            width: 130%;
+            right: 120px;
+            border-radius: 10px;
+        }
+
+        .editor-container {
+            margin: 20px auto;
+            position: relative;
+            width: 1050px;
+            height: 100vh;
+        }
+
+        #editor {
+        border-radius: 10px;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            height: 100%;
+            width: 100%;
+            font-size: 20px;
+        }
+        .heading{
+            text-align: center;
+            font-size: 40px;
+        }
+        .intro{
+            margin-top: 80px;
+        }
+        .download{
+            display: flex;
+            justify-content: space-evenly;
+        }
+        .holy1{
+            font-size: 25px;
+            padding: 10px 15px;
+            background-color: #080808;
+            border-color: #279EFF;
+            border-radius: 10px;
+            color: white;
+            transition: background-color 0.5s;
+        }
+        .holy1:hover{
+            background-color: #279EFF;
+        }
+        .holy2{
+            
+            font-size: 25px;
+            
+            padding: 10px 33px;
+            background-color: #080808;
+            border-color: #279EFF;
+            border-radius: 10px;
+            color: white;
+            transition: background-color 0.5s;
+        }
+        .holy2:hover{
+            background-color: #279EFF;
+        }
+        .down1{
+            margin-left: 35%;
+        }
+        .down2{
+            margin-right: 30%;
+        }
+        .download a{
+            text-decoration: none;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="header">
+        <div class="container">
+            <nav>
+                <div class="left"><a href="../index.html"><i class="fa-solid fa-layer-group"></i></a></div>
+                <div class="right">
+                    <ul>
+                        <li><a href="#next">Code</a></li>
+                        <li><a href="../index.html"><i class="fa-solid fa-arrow-left-long" style="color: #ffffff;"></i>
+                                Back</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <div id="newHead">
+        <h1><span class="shit"><span class="shit"></span>Screen Recorder</span></h1>
+    </div>
+
+    <!-------------------video ----------------------------->
+
+    <div class="video-content container">
+        <video autoplay loop muted src="../images/Recording.mp4"></video>
+    </div>
+
+    <!--------------------- code ---------------------------->
+    <div id="next" class="intro container">
+        <h1 class="shit heading">Code</h1>
+    </div>
+    <div class="editor-container container">
+        <div id="editor">
+# importing the required packages
+import pyautogui
+import cv2
+import numpy as np
+
+# Specify resolution
+resolution = (1920, 1080)
+
+# Specify video codec
+codec = cv2.VideoWriter_fourcc(*"XVID")
+
+# Specify name of Output file
+filename = "Recording.avi"
+
+# Specify frames rate. We can choose any 
+# value and experiment with it
+fps = 60.0
+
+
+# Creating a VideoWriter object
+out = cv2.VideoWriter(filename, codec, fps, resolution)
+
+# Create an Empty window
+cv2.namedWindow("Screen Recorder", cv2.WINDOW_NORMAL)
+
+# Resize this window
+cv2.resizeWindow("Screen Recorder", 480, 270)
+
+while True:
+	# Take screenshot using PyAutoGUI
+	img = pyautogui.screenshot()
+
+	# Convert the screenshot to a numpy array
+	frame = np.array(img)
+
+	# Convert it from BGR(Blue, Green, Red) to
+	# RGB(Red, Green, Blue)
+	frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+
+	# Write it to the output file
+	out.write(frame)
+	
+	# Optional: Display the recording screen
+	cv2.imshow('Screen Recorder', frame)
+	
+	# Stop recording when we press 'q'
+	if cv2.waitKey(1) == ord(' '):
+		break
+
+# Release the Video writer
+out.release()
+
+# Destroy all windows
+cv2.destroyAllWindows()
+        </div>
+    </div>
+    <div class="download container">
+        <div class="down1"><button class="holy1"><a href="https://github.com/Vedansh564/MYWEBSITE/blob/master/project.py">Download </a> </button>
+        </div>
+        <div class="down2"><button class="holy2"><a href="../index.html"> Home</a> </button>
+        </div>
+        
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.32.0/ace.js"></script>
+    <script src="./editor.js"></script>
+</body>
+
+</html>
