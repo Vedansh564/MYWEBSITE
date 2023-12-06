@@ -6,7 +6,169 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project</title>
     <script src="https://kit.fontawesome.com/1cb338e89a.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #080808;
+            color: white;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 30px;
+        }
+
+        .container {
+            padding: 10px 10%;
+            margin-top: 10px;
+
+
+        }
+
+        #newHead {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 25px;
+        }
+
+        .container1 {
+            padding: 10px 10%;
+            display: flex;
+            gap: 100px;
+        }
+
+        .container .left {
+            font-size: 250%;
+        }
+
+        .container .left a {
+            color: white;
+            transition: color 0.5s;
+        }
+
+        .container .left a:hover {
+            color: #279EFF;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 10 20px;
+            font-size: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            position: relative;
+        }
+
+        nav ul li a::after {
+            content: "";
+            width: 0;
+            height: 3px;
+            background: #279EFF;
+            position: absolute;
+            left: 0;
+            bottom: -6px;
+            transition: width 0.5s;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        #content {
+            margin-top: 90px;
+        }
+
+        .heading {
+            font-size: 70px;
+            margin-top: 10%;
+
+        }
+
+        .project {
+            color: #279EFF;
+        }
+
+        .github {
+            margin-top: 20px;
+        }
+
+        .container1 .right {
+            width: 100vb;
+        }
+
+
+        .work {
+            margin-left: 25%;
+        }
+
+        .work .layer {
+            margin-left: 25%;
+            margin-top: 10px;
+        }
+
+        .image-class {
+            width: 400px;
+            height: 280px;
+            background-color: #262626;
+            transition: background-color 0.5s, transform 0.5s;
+            border-radius: 10px;
+        }
+
+        .image-class:hover {
+            background-color: #279EFF;
+            transform: translateY(-10px);
+        }
+
+        .image-class i {
+            font-size: 200px;
+            margin-top: 40px;
+            margin-left: 110px;
+            color: white;
+        }
+
+        .heading1 {
+            text-align: center;
+            font-size: 40px;
+            margin-top: 200px;
+        }
+
+        .top {
+            padding: 20px;
+            margin-left: 92%;
+            border-radius: 50%;
+
+        }
+
+        .shit {
+            color: white;
+            transition: color 0.5s;
+            cursor: default;
+        }
+
+        .shit:hover {
+            color: #279EFF;
+        }
+    </style>
 </head>
 
 <body>
@@ -26,25 +188,38 @@
     </div>
 
     <div id="newHead">
-        <h1><span class="shit">Python</span></h1>
+        <h1><span class="shit"><span class="shit"></span>Python</span></h1>
     </div>
 
-    
-    <!-- heading  -->
+
+    <!-- content -->
     <div id="content">
         <div class="container1">
             <div class="left">
-                <h1 class="heading">Our <br><span class="project">Projects</span><br><i class="fa-brands fa-github github"></i></h1>
+                <h1 class="heading">Our <br><span class="project">Projects</span><br><i
+                        class="fa-brands fa-github github"></i></h1>
             </div>
             <div class="right">
                 <div class="work">
-                    <a href="https://github.com/Vedansh564/MYWEBSITE/blob/master/project.py"><video width="320" height="240" controls>
-                        <source src="../images/Recording.mp4" type="video/mp4">
-                      </video></a>
+                    <a href="./project2code.html">
+                        <div class="image-class">
+                            <i class="fa-brands fa-python"></i>
+                        </div>
+
+                    </a>
                     <div class="layer">
                         <h3>Screen Recorder</h3>
                     </div>
+                </div>
             </div>
+        </div>
+    </div>
+    <div id="text">
+        <h1 class="heading1">More Still Under <span class="project">Development</span></h1>
+    </div>
+    <a href="#header" class="top"><i class="fa-solid fa-angle-up"></i></a>
 
-    
-</body>                    
+
+
+
+</body>
